@@ -1,8 +1,7 @@
 package br.edu.ufabc.visualizadoraulas.controllers;
 
-import br.edu.ufabc.visualizadoraulas.domain.Turma;
+import br.edu.ufabc.visualizadoraulas.domain.Turmas;
 import br.edu.ufabc.visualizadoraulas.services.MatrizService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,8 +18,8 @@ public class MatrizController {
     private final MatrizService matrizService;
 
     @GetMapping("/{ra}")
-    public ResponseEntity<List<Turma> > obterMatriz(@PathVariable("ra") String registroAcademico) {
-        List<Turma> turmas = matrizService.obterMatriz(registroAcademico);
+    public ResponseEntity<List<Turmas> > obterMatriz(@PathVariable("ra") String registroAcademico) {
+        List<Turmas> turmas = matrizService.obterMatriz(registroAcademico);
 
         return ResponseEntity.ok(turmas);
     }
